@@ -1,0 +1,92 @@
+2024-09-03 14:20:45.123  INFO 12345 --- [           main] com.example.app.Application              : Starting Application using Java 17.0.8
+2024-09-03 14:20:45.127  INFO 12345 --- [           main] com.example.app.Application              : No active profile set, falling back to 1 default profile: "default"
+2024-09-03 14:20:46.312  INFO 12345 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-09-03 14:20:46.324  INFO 12345 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-03 14:20:46.325  INFO 12345 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2024-09-03 14:20:46.489  INFO 12345 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-09-03 14:20:46.490  INFO 12345 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1102 ms
+2024-09-03 14:20:46.712  INFO 12345 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-03 14:20:47.018  INFO 12345 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-03 14:20:47.102  INFO 12345 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-09-03 14:20:47.245  INFO 12345 --- [           main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-03 14:20:47.389  INFO 12345 --- [           main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 3 repository interfaces.
+2024-09-03 14:20:47.612  INFO 12345 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-03 14:20:47.889  INFO 12345 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2024-09-03 14:20:48.234  INFO 12345 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-03 14:20:48.902  INFO 12345 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-09-03 14:20:48.915  INFO 12345 --- [           main] com.example.app.Application              : Started Application in 3.987 seconds (process running for 4.312)
+2024-09-03 14:20:49.012  INFO 12345 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state LivenessState changed to CORRECT
+2024-09-03 14:20:49.014  INFO 12345 --- [           main] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+2024-09-03 14:21:03.445  INFO 12345 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-03 14:21:03.446  INFO 12345 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-09-03 14:21:03.448  INFO 12345 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-09-03 14:21:05.112  INFO 12345 --- [nio-8080-exec-2] c.e.app.service.UserService              : Fetching users from database
+2024-09-03 14:21:05.234  INFO 12345 --- [nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.example.app.service.UserService.findAll]
+2024-09-03 14:21:05.567  INFO 12345 --- [nio-8080-exec-2] c.e.app.service.UserService              : Successfully retrieved 42 users
+2024-09-03 14:21:10.321  INFO 12345 --- [nio-8080-exec-3] o.s.b.w.embedded.tomcat.TomcatWebServer  : Starting Spring Boot application
+2024-09-03 14:21:10.845  INFO 12345 --- [nio-8080-exec-3] o.s.d.r.c.RepositoryConfigurationDelegate: Initializing PostgreSQL connection pool
+2024-09-03 14:21:12.103  INFO 12345 --- [nio-8080-exec-3] o.s.b.w.embedded.tomcat.TomcatWebServer  : Attempting to connect to PostgreSQL at jdbc:postgresql://db.prod.example.com:5432/appdb
+2024-09-03 14:21:20.453 ERROR 12345 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Failed to connect to PostgreSQL database after 3 retries
+2024-09-03 14:21:20.453 ERROR 12345 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FATAL: password authentication failed for user "appuser"
+2024-09-03 14:21:20.454 ERROR 12345 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Servlet.service() for servlet [dispatcherServlet] threw exception
+org.postgresql.util.PSQLException: FATAL: password authentication failed for user "appuser"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:546)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:180)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:223)
+	at org.postgresql.Driver.makeConnection(Driver.java:402)
+	at org.postgresql.Driver.connect(Driver.java:261)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:213)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:115)
+	at com.example.app.repository.UserRepository.findAll(UserRepository.java:45)
+	at com.example.app.service.UserService.findAll(UserService.java:62)
+2024-09-03 14:21:21.002  WARN 12345 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Page Not Found. No matching handler for request [GET /api/v1/profiles]
+2024-09-03 14:21:23.110  INFO 12345 --- [nio-8080-exec-4] com.example.app.controller.UserController: Received GET /api/users request
+2024-09-03 14:21:25.321 ERROR 12345 --- [nio-8080-exec-4] c.e.a.c.UserController                   : Unhandled exception in UserController
+java.lang.NullPointerException: Cannot invoke "com.example.app.model.User.getEmail()" because "user" is null
+	at com.example.app.service.UserService.sendWelcomeEmail(UserService.java:89)
+	at com.example.app.service.UserService.createUser(UserService.java:64)
+	at com.example.app.controller.UserController.createUser(UserController.java:52)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+2024-09-03 14:21:25.456 ERROR 12345 --- [nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : HTTP Status 500 - Internal Server Error on [POST /api/users]
+2024-09-03 14:21:26.012  WARN 12345 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Connection is not available, request timed out after 30000ms
+2024-09-03 14:21:26.015  WARN 12345 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=10, idle=0, waiting=5)
+2024-09-03 14:21:26.017  WARN 12345 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (30000ms elapsed, 10 connections exhausted)
+2024-09-03 14:21:27.230  WARN 12345 --- [           main] o.s.b.c.p.s.PropertySourceBootstrapConfiguration: spring.datasource.initialization-mode is deprecated, use spring.sql.init.mode instead
+2024-09-03 14:21:27.512  WARN 12345 --- [           main] o.s.b.c.p.s.PropertySourceBootstrapConfiguration: spring.jpa.open-in-view is enabled by default. This is a well-known performance and scalability problem. Set it to false to improve performance.
+2024-09-03 14:21:28.003  INFO 12345 --- [nio-8080-exec-5] c.e.app.controller.HealthController      : Health check request received
+2024-09-03 14:21:28.125  INFO 12345 --- [nio-8080-exec-5] c.e.app.controller.HealthController      : Health status: DEGRADED (database unreachable)
+2024-09-03 14:21:30.445 ERROR 12345 --- [nio-8080-exec-6] c.e.app.service.OrderService             : Failed to process order #98231
+java.net.SocketTimeoutException: Connect timed out after 5000ms connecting to payment-gateway.example.com:443
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:399)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:242)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:224)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:772)
+	at com.example.app.service.PaymentService.charge(PaymentService.java:134)
+	at com.example.app.service.OrderService.processOrder(OrderService.java:89)
+2024-09-03 14:21:30.447 ERROR 12345 --- [nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : HTTP Status 500 - Payment gateway unreachable on [POST /api/orders/98231/pay]
+2024-09-03 14:21:31.780  INFO 12345 --- [nio-8080-exec-7] c.e.app.controller.ProductController     : Retrieving product catalog
+2024-09-03 14:21:32.001  INFO 12345 --- [nio-8080-exec-7] c.e.app.repository.ProductRepository     : Executing query: SELECT * FROM products WHERE active=true
+2024-09-03 14:21:33.222  INFO 12345 --- [nio-8080-exec-7] c.e.app.controller.ProductController     : Returned 156 products in 1221ms
+2024-09-03 14:21:35.019  WARN 12345 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-09-03 14:21:36.112  INFO 12345 --- [scheduling-1]   c.e.app.scheduler.CleanupScheduler       : Running scheduled cleanup task
+2024-09-03 14:21:36.334  INFO 12345 --- [scheduling-1]   c.e.app.scheduler.CleanupScheduler       : Deleted 23 expired sessions
+2024-09-03 14:21:38.789 ERROR 12345 --- [nio-8080-exec-8] c.e.app.service.EmailService             : Failed to send email to user@example.com
+javax.mail.MessagingException: Could not connect to SMTP host: smtp.example.com, port: 587
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:2209)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:740)
+	at javax.mail.Service.connect(Service.java:388)
+	at com.example.app.service.EmailService.sendEmail(EmailService.java:67)
+	at com.example.app.service.UserService.sendWelcomeEmail(UserService.java:92)
+2024-09-03 14:21:38.901  INFO 12345 --- [nio-8080-exec-8] c.e.app.controller.UserController        : Request completed with status 200
+2024-09-03 14:21:40.005  INFO 12345 --- [nio-8080-exec-9] c.e.app.service.CacheService             : Cache miss for key: user_profile_12345
+2024-09-03 14:21:40.123  INFO 12345 --- [nio-8080-exec-9] c.e.app.service.CacheService             : Fetching from database and caching result
+2024-09-03 14:21:41.678  INFO 12345 --- [nio-8080-exec-10] c.e.app.controller.MetricsController    : Metrics endpoint accessed
